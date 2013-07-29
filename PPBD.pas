@@ -4,11 +4,11 @@ label 1;
 var
   	t               	     	:tmouseevent;
         kz,zz,x,x1,y,i,j,xx,k      	:longint;
-        h,m,s,ms      	  		    :word;
-		cmd,q					    :string;
+        h,m,s,ms      	  		:word;
+	cmd,q				:string;
         flag           		       	:boolean;
-        ch   				       	:char;
-        last				        :array[1..80,1..44] of integer;
+        ch   				:char;
+        last				:array[1..80,1..44] of integer;
 
 procedure new;
 begin
