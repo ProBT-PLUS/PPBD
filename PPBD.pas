@@ -1,3 +1,4 @@
+//version 1.5 beta2.0
 uses crt,mouse,dos;
 label 1;
 var
