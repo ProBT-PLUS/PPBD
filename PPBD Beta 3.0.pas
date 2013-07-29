@@ -987,7 +987,7 @@ begin
                         		continue;
                         end;
                         if pos('save',cmd)<>0 then begin
-                                assign(f1,'C:\'+copy(cmd,6,length(cmd)-6)+'.PPBD');
+                                assign(f1,'C:\'+copy(cmd,6,length(cmd)-5)+'.PPBD');
                                 rewrite(f1);
                         	for i:=1 to 80 do begin
                         		for j:=1 to 44 do write(f1,last[i,j],' ');
