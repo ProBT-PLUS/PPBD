@@ -542,7 +542,7 @@ while not(flag) do begin
     textbackground(green);
     writeln('           --------======the painting program based on DOS======--------        ');
     writeln;
-    writeln('                          ~~~[version 1.1 Beta 1.0]~~~                           ');
+    writeln('                          ~~~[version 1.5 Beta 2.0]~~~                           ');
     writeln;
     write('                           designers:');
     textcolor(red);
