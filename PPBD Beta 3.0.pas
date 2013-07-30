@@ -2,14 +2,14 @@
 uses crt,mouse,dos;
 label 1;
 var
-    	t               	     	:tmouseevent;
-        kz,zz,x,x1,y,i,j,xx,k      	:longint;
+    	t               	     		:tmouseevent;
+        kz,zz,x,x1,y,i,j,xx,k      		:longint;
         h,m,s,ms      	  			:word;
-		cmd,q						:string;
-        flag           		       	:boolean;
-        ch   						:char;
-        last						:array[1..80,1..44] of integer;
-        f1                          :text;
+	cmd,q					:string;
+        flag           		       		:boolean;
+        ch   					:char;
+        last					:array[1..80,1..44] of integer;
+        f1                          		:text;
 
 procedure Mak1;
 begin
