@@ -2,14 +2,76 @@
 uses crt,mouse,dos;
 label 1;
 var
-    t               	     	:tmouseevent;
+    	t               	     	:tmouseevent;
         kz,zz,x,x1,y,i,j,xx,k      	:longint;
-        h,m,s,ms      	  		:word;
-	cmd,q				:string;
+        h,m,s,ms      	  			:word;
+		cmd,q						:string;
         flag           		       	:boolean;
-        ch   				:char;
-        last				:array[1..80,1..44] of integer;
-        f1                              :text;
+        ch   						:char;
+        last						:array[1..80,1..44] of integer;
+        f1                          :text;
+
+procedure Mak1;
+begin
+	textbackground(white);
+        clrscr;
+        textbackground(yellow);
+        textcolor(blue);
+   		gotoxy(32,5);
+   	 	writeln('               ');
+    	gotoxy(30,6);
+    	writeln('   Make Progress   ');
+    	gotoxy(32,7);
+    	writeln('               ');
+		textbackground(white);
+	while true do begin
+    	textcolor(green);
+    	textbackground(red);
+    	textcolor(red);
+    	textbackground(yellow);
+   		gotoxy(1,10);
+        writeln('NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~');
+        textbackground(15);
+    	textcolor(green);
+    	textbackground(red);
+        writeln;
+        writeln('6.save       Save the picture you drew,default directory is under c:\');
+        writeln('like "save ABC" or "save D:\ABC"');
+    	writeln;
+    	writeln('7.load       Load the picture you drew,default directory is under c:\');
+    	writeln('like "load ABC" or "load D:\ABC"');
+    	writeln;
+		GetMouseEvent(t);
+    	while true do begin
+        	GetMouseEvent(t);
+       	 	if (GetMouseButtons=1) and (getmousex>=3) and (getmousey>37) and (getmousey<41) and (getmousex<=9) then begin
+       	 		textbackground(15);
+       	 		clrscr;
+       	 		exit;
+       	 	end;
+       	 	if (GetMouseButtons=0) and (getmousex>=3) and (getmousey>37) and (getmousey<41) and (getmousex<=9) then begin
+    			textbackground(green);
+    			textcolor(red);
+    			gotoxy(4,39);
+   				writeln('    ');
+   				gotoxy(3,40);
+    			writeln(' BACK ');
+    			gotoxy(4,41);
+    			writeln('    ');
+       	 	end
+       	 	else begin
+				textbackground(yellow);
+    			textcolor(green);
+    			gotoxy(4,39);
+   				writeln('    ');
+   				gotoxy(3,40);
+    			writeln(' BACK ');
+    			gotoxy(4,41);
+    			writeln('    ');
+       	 	end;
+    	end;
+    end;
+end;
 
 procedure new;
 begin
@@ -30,19 +92,15 @@ textbackground(white);
     	gotoxy(1,10);
     	writeln('1.Fixed some BUGs of the command tip');
     	writeln;
-    	writeln('2.Fixed some BUGs of ''fillall''');
+    	writeln('2.Added more and more buttons');
         writeln;
-        writeln('3.Make it easy to use without hidden the task tip');
+        writeln('3.Save and load the picture you painted');
     	writeln;
-    	writeln('4.Clean up button in the second tooltip');
+    	writeln('4.Make it easy to stop the command line');
     	writeln;
-    	writeln('5.Could paint with both button of the mouse');
-    	writeln;
-    	writeln('6.Added the function named ''colorall''');
-    	writeln;
-    	writeln('~~PPBD 1.5 Beta 2.0~~');
+    	writeln('~~PPBD 2.0 Beta 3.0~~');
         writeln;
-        writeln('2013.07.29 Zhenzhou China');
+        writeln('2013.07.30 Zhenzhou China');
 		GetMouseEvent(t);
     	while true do begin
         	GetMouseEvent(t);
@@ -216,6 +274,7 @@ procedure Mak;
 begin
 	textbackground(white);
         clrscr;
+	while true do begin
         textbackground(yellow);
         textcolor(blue);
    		gotoxy(32,5);
@@ -224,8 +283,6 @@ begin
     	writeln('   Make Progress   ');
     	gotoxy(32,7);
     	writeln('               ');
-		textbackground(white);
-	while true do begin
     	textcolor(green);
     	textbackground(red);
     	gotoxy(1,10);
@@ -249,12 +306,6 @@ begin
     	writeln('follow a name of color(black,blue,green,cyan,red,magenta,brown,lightgray');
     	writeln('darkgray,lightBlue,lightgreen,lightcyan,lightred,lightmagenta,yellow,white');
     	writeln;
-    	textcolor(red);
-    	textbackground(yellow);
-        writeln('NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~NEW~~');
-        textbackground(15);
-    	textcolor(green);
-    	textbackground(red);
 		GetMouseEvent(t);
 		writeln('5.colorall        ''colorall'' means coloring all the blocks you painted');
 		writeln('with the same color(black,blue,green,cyan,red,magenta,brown,lightgray)');
@@ -285,6 +336,31 @@ begin
     			gotoxy(4,41);
     			writeln('    ');
        	 	end;
+			if (GetMouseButtons=1) and (getmousex>=71) and (getmousey>37) and (getmousey<41) and (getmousex<=77) then begin
+       	 		textbackground(15);
+       	 		Mak1;
+       	 		break;
+       	 	end;
+       	 	if (GetMouseButtons=0) and (getmousex>=71) and (getmousey>37) and (getmousey<41) and (getmousex<=77) then begin
+    			textbackground(green);
+    			textcolor(red);
+    			gotoxy(72,39);
+   				writeln('    ');
+   				gotoxy(71,40);
+    			writeln(' Next ');
+    			gotoxy(72,41);
+    			writeln('    ');
+       	 	end
+       	 	else begin
+				textbackground(yellow);
+    			textcolor(green);
+    			gotoxy(72,39);
+   				writeln('    ');
+   				gotoxy(71,40);
+    			writeln(' Next ');
+    			gotoxy(72,41);
+    			writeln('    ');
+       	 	end;
         end;
 	end;
 end;
@@ -311,6 +387,12 @@ begin
     	writeln('the main programmer of PPBD,15 years old');
         writeln('a student from hangzhou,who likes programming');
     	writeln('and also likes OI,is an OIer for some time');
+    	write('The people who set up the ');
+    	textcolor(blue);
+    	textbackground(yellow);
+    	writeln('ProBT-PLUS');
+    	textcolor(green);
+    	textbackground(red);
     	writeln;
     	writeln;
         writeln;
@@ -321,6 +403,12 @@ begin
         writeln('he could program in many different languages');
         writeln('-like html5 C C++ pascal Python Batch JavaScript VBScript Cascading Style Sheet');
         writeln('and he thinks OI is awful,but he does really well in it');
+        write('The main member of the ');
+    	textcolor(blue);
+    	textbackground(yellow);
+    	writeln('ProBT-PLUS');
+    	textcolor(green);
+    	textbackground(red);
 		textbackground(yellow);
     	textcolor(green);
     	gotoxy(34,5);
@@ -356,8 +444,7 @@ begin
     			gotoxy(4,41);
     			writeln('    ');
        	 	end;
-    	end;
-	end;
+	end;end;
 end;
 
 
@@ -543,7 +630,7 @@ while not(flag) do begin
     textbackground(green);
     writeln('           --------======the painting program based on DOS======--------        ');
     writeln;
-    writeln('                          ~~~[version 1.1 Beta 1.0]~~~                           ');
+    writeln('                          ~~~[version 2.0 Beta 3.0]~~~                           ');
     writeln;
     write('                           designers:');
     textcolor(red);
@@ -861,6 +948,7 @@ begin
                                                                                         write(' ');
                                                                                 end;
                                 clrscr;
+                                                     while not ((GetMouseButtons=1) and (GetMouseY<43)) do GetMouseEvent(t);
                         end;
                         if pos('sens',cmd)<>0 then begin
                         	val(copy(cmd,6,length(cmd)-5),xx);
@@ -877,6 +965,7 @@ begin
                                                                                         textbackground(last[i,j]);
                                                                                         write(' ');
                                                                                 end;
+                                while not ((GetMouseButtons=1) and (GetMouseY<43)) do GetMouseEvent(t);
                         end;
                         if cmd='stop' then begin
                                 while not ((GetMouseButtons=1) and (GetMouseY<43)) do GetMouseEvent(t);
@@ -939,6 +1028,7 @@ begin
                                                                                         textbackground(last[i,j]);
                                                                                         write(' ');
                                                                                 end;
+                                while not ((GetMouseButtons=1) and (GetMouseY<43)) do GetMouseEvent(t);
                         		continue;
                         end;
 								if pos('colorall',cmd)<>0 then begin
@@ -984,10 +1074,12 @@ begin
                                                                                         textbackground(last[i,j]);
                                                                                         write(' ');
                                                                                 end;
+                                while not ((GetMouseButtons=1) and (GetMouseY<43)) do GetMouseEvent(t);
                         		continue;
                         end;
                         if pos('save',cmd)<>0 then begin
-                                assign(f1,'C:\'+copy(cmd,6,length(cmd)-5)+'.PPBD');
+                        		if pos(':\',cmd)<>0 then assign(f1,copy(cmd,6,length(cmd)-5)+'.PPBD')
+                                else assign(f1,'C:\'+copy(cmd,6,length(cmd)-5)+'.PPBD');
                                 rewrite(f1);
                         	for i:=1 to 80 do begin
                         		for j:=1 to 44 do write(f1,last[i,j],' ');
@@ -1006,6 +1098,30 @@ begin
                                                                                         textbackground(last[i,j]);
                                                                                         write(' ');
                                                                                 end;
+                                while not ((GetMouseButtons=1) and (GetMouseY<43)) do GetMouseEvent(t);
+                        end;
+                        if pos('load',cmd)<>0 then begin
+                        		if pos(':\',cmd)<>0 then assign(f1,copy(cmd,6,length(cmd)-5)+'.PPBD')
+                                else assign(f1,'C:\'+copy(cmd,6,length(cmd)-5)+'.PPBD');
+                                reset(f1);
+                        	for i:=1 to 80 do begin
+                        		for j:=1 to 44 do read(f1,last[i,j]);
+                        		readln(f1);
+                        	end;
+                                close(f1);
+                                                                                 for i:=1 to 2 do
+                                                                                    for j:=41 to 43 do begin
+                                                                                        gotoxy(i,j);
+                                                                                        textbackground(last[i,j]);
+                                                                                        write(' ');
+                                                                                    end;
+                                                                                for i:=3 to 80 do
+                                                                                    for j:=3 to 43 do begin
+                                                                                        gotoxy(i,j);
+                                                                                        textbackground(last[i,j]);
+                                                                                        write(' ');
+                                                                                end;
+                                while not ((GetMouseButtons=1) and (GetMouseY<43)) do GetMouseEvent(t);
                         end;
        		end;
 		textbackground(zz);
