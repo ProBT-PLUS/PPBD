@@ -1,4 +1,4 @@
 PPBD
 ====
 
-the painter program based on DOS,program with pascal
+A drawing board program with a command line interface, program with pascal

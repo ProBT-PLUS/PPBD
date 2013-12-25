@@ -1,3 +1,3 @@
 Version
 =========
->1.5 ***beta*** 2.0
+>Build 2.5 ***Release*** 1.0
